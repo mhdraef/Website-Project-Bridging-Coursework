@@ -1,5 +1,5 @@
 h1, h2, h3, h4 {
-    color: #8B0000;
+    color: #000000;
     font-family: 'Monoton', cursive;
 }
 
@@ -28,6 +28,11 @@ h1, h2, h3, h4 {
     float: right;
 }
 
+.edit{
+  float: right;
+  margin-top: -40px;
+}
+
 .post-form textarea, .post-form input {
     width: 100%;
 }
@@ -37,12 +42,13 @@ h1, h2, h3, h4 {
     float: right;
     font-size: 26pt;
     margin-right: 20px;
+    margin-top: 30px;
 }
 
 .post {
     margin-bottom: 70px;
 }
 
-.post h2, .post h2 a:visited, .post h2 a:active, .post h2 a:hover, .post h3, .post h3 a:visited, .post h3 a:active, .post h3 a:hover, h3, h3 a:visited, h3 a:active, h3 a:hover {
+.post h2 a, h3 a, h3 a:hover {
     color: #000000;
 }
