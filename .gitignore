@@ -2,5 +2,6 @@
 *~
 __pycache__
 web
+db.sqlite3
 /static
 .DS_Store
