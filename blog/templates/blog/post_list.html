@@ -1,5 +1,11 @@
 {% extends 'blog/base.html' %}
 
+{% block landing %}
+<div class="landing-main">
+  <center><h1>Welcome to my blog!</h1></center>
+</div>
+{% endblock %}
+
 {% block page-header %}
   {% if user.is_authenticated %}
       <a href="{% url 'post_new' %}" class="top-menu-plus"><span class="glyphicon glyphicon-plus"></span></a>

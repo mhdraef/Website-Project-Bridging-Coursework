@@ -6,7 +6,7 @@ h1, h2, h3, h4 {
 .page-header {
     background-color: #000000;
     margin-top: 0;
-    padding: 20px 20px 20px 55px;
+    padding: 0px 20px 0px 55px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -14,14 +14,30 @@ h1, h2, h3, h4 {
     font-size: 36pt;
     text-decoration: none;
 }
-
-.content {
-    margin-left: 40px;
+.page-header h3 a{
+  color: #FFFFFF;
 }
 
+.content {
+    margin-left: 20px;
+}
 
-.date {
-    color: #828282;
+.container{
+  width:95%;
+}
+
+.date{
+  color: #828282;
+
+}
+
+.date-landing {
+    color: #fff;
+    position:absolute;
+    bottom:0;
+    right:10;
+    font-size: 20px;
+
 }
 
 .save {
@@ -29,8 +45,9 @@ h1, h2, h3, h4 {
 }
 
 .edit{
-  float: right;
-  margin-top: -40px;
+  position: absolute;
+  right:20;
+  top:-40;
 }
 
 .post-form textarea, .post-form input {
@@ -42,7 +59,11 @@ h1, h2, h3, h4 {
     float: right;
     font-size: 15pt;
     margin-right: 20px;
-    margin-top: 35px;
+    margin-top: 15px;
+}
+
+.logout a{
+  color: #ffffff;
 }
 
 .top-menu-plus, .top-menu-plus:hover, .top-menu-plus:visited{
@@ -50,13 +71,75 @@ h1, h2, h3, h4 {
   font-size: 26pt;
   float: right;
   margin-right: 20px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .post {
+    margin-top: 70px;
     margin-bottom: 70px;
 }
 
-.post h2 a, h3 a, h3 a:hover {
+.post h2 a, .post h3 a, .post h3 a:hover {
     color: #000000;
+}
+
+.landing-main {
+  min-height: 100vh;
+	margin: 0;
+  color: #fff;
+  background: linear-gradient(-45deg, #fdeff9, #ec38bc, #7303c0, #03001e);
+	background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+}
+
+.landing-main h1 {
+  position:absolute;
+  top:45%;
+  width: 100%;
+  font-size: 60px;
+  font-family:sans-serif;
+  font-weight: bold;
+  color: #fff;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.navbar-default{
+  background: transparent;
+  border-color: transparent;
+}
+
+.navbar-default .navbar-nav {
+  color:#fff;
+  margin-top: 15;
+  font-size: 18px;
+}
+.navbar-default .navbar-brand:hover{
+  color: #fff;
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-brand{
+  color: #fff;
+}
+
+.footer{
+	background: #000;
+	font-size: 30px;
+	color: #fff;
+	text-align: center;
+}
+.footer a{
+	color:#fff;
+	text-decoration: none;
 }

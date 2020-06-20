@@ -7,7 +7,8 @@ from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+def homepage(request):
+    return render(request, 'blog/homepage.html')
 
 def post_list(request):
     posts = Post.objects.filter(date_published__isnull=False).order_by('-date_published')
@@ -29,7 +30,7 @@ def post_new(request):
             return redirect('blog_post', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'blog/post_new.html', {'form': form})
 
 @login_required
 def post_edit(request, pk):
@@ -45,3 +46,6 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def cv(request):
+    return render(request, 'blog/cv.html')

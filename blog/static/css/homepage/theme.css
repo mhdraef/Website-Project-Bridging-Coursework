@@ -1,0 +1,158 @@
+/* Theme */
+
+/*Radial movement background*/
+.radial-gradient {
+  top:0px;
+  left:0px;
+  height:100%;
+  width:100%;
+
+  /*Fallback if gradeints don't work */
+  background: #c64ede;
+  /*Linear gradient... */
+  background:
+    radial-gradient(
+     at center, #ff57cd, #c64ede
+    );
+}
+
+/*Linear moving gradient background*/
+/*
+main {
+	margin: 0;
+  color: #fff;
+  background: linear-gradient(-45deg, #fdeff9, #ec38bc, #7303c0, #03001e);
+	background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+*/
+
+.icons-social a {
+	color: #FAFAFA;
+}
+.icons-social a:hover{
+	color: #FFFFFF;
+
+}
+
+.icons-social a svg path{
+	fill: #FAFAFA;
+}
+
+/*Second Division - Blog/CV*/
+
+.page-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.page-container {
+	 pointer-events: none;
+}
+ .center-content {
+	 display: inline-block;
+	 width: 100%;
+	 position: absolute;
+	 top: 50%;
+	 transform: translateY(-50%);
+	 text-align: center;
+	 z-index: 1;
+}
+ .letter-container {
+	 display: inline-block;
+	 position: relative;
+	 width: 80px;
+	 height: 100px;
+	 line-height: 100px;
+	 overflow: hidden;
+}
+ .letter-container .letter {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 display: inline-block;
+	 color: #fff;
+	 font-size: 100px;
+	 font-weight: 900;
+	 transition: all 0.3s;
+	 white-space: none;
+}
+ .letter-container .letter:first-of-type {
+	 left: -80px;
+}
+ .letter-container .letter:last-of-type {
+	 left: 80px;
+}
+
+
+.container{
+  position:relative;
+  display:flex;
+}
+
+.blog,
+.resume {
+  min-height: 100vh;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: all .3s;
+  z-index: 0;
+}
+.blog:hover {
+    width: 75%;
+  }
+
+.resume:hover {
+      width: 150%;
+  }
+
+	.blog {
+		 left: 0;
+		 background-color: #DA70D6;
+		 background-size: cover;
+		 background-position: center;
+	}
+	 .blog:hover + div {
+		 width: 25%;
+	}
+	 .blog:hover + div + div .center-content .letter {
+		 left: 80px;
+		 transition: none;
+
+	}
+	 .blog:hover + div + div .center-content .letter:first-of-type {
+		 left: 0;
+		 transition: all 0.3s;
+	}
+
+	.resume {
+		 right: 0;
+		 background-color: #FF1493;
+		 background-size: cover;
+		 background-position: center;
+	}
+	 .resume:hover + div .center-content .letter {
+		 left: -80px;
+		 transition: none;
+	}
+	 .resume:hover + div .center-content .letter:last-of-type {
+		 left: 0;
+		 transition: all 0.3s;
+	}

@@ -1,25 +1,55 @@
 {% load static %}
 <html>
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title> Raef's Blog </title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/homepage/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $(window).scroll(function() { // check if scroll event happened
+          if ($(document).scrollTop() > 740) { // check if user scrolled more than 50 from top of the browser window
+            $(".navbar-default").css("background-color", "#000000"); // if yes, then change the color of class "navbar-fixed-top" to white (#f8f8f8)
+          } else {
+            $(".navbar-default").css("background-color", "transparent"); // if not, change it back to transparent
+          }
+        });
+      });
+    </script>
+
   </head>
 
-  <body>
+<body>
 
-    <div class="page-header">
-      {% if user.is_authenticated %}
-      <p class="top-menu">Signed in as {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-      {% else %}
-          <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-      {% endif %}
-      {% block page-header %}
-      {% endblock %}
-      <h1>Raef's Blog</h1>
-    </div>
+  {% block landing %}
+  {% endblock %}
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+  <a class = "navbar-brand" href="/">Home</a>
+  <a class = "navbar-brand" href="/blog">Blog</a>
+  <a class = "navbar-brand" href="/cv">CV</a>
+  {% if user.is_authenticated %}
+  <p class="top-menu">Signed in as {{ user.username }} <small class="logout">(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+  {% else %}
+      <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+  {% endif %}
+  {% block page-header %}
+  {% endblock %}
+  </div>
+</nav>
+
 
     <div class="content container">
       <div class="row">
@@ -30,5 +60,8 @@
       </div>
     </div>
 
+    <footer class="footer">
+    	 <a href="#"><i class="fa fa-arrow-up"></i></a>
+    </footer>
   </body>
 </html>
