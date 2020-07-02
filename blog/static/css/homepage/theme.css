@@ -1,5 +1,9 @@
 /* Theme */
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*Radial movement background*/
 .radial-gradient {
   top:0px;
@@ -8,11 +12,11 @@
   width:100%;
 
   /*Fallback if gradeints don't work */
-  background: #c64ede;
+  background: #4B0082;
   /*Linear gradient... */
   background:
     radial-gradient(
-     at center, #ff57cd, #c64ede
+     at center, #ff57cd, #4B0082
     );
 }
 
@@ -40,7 +44,7 @@ main {
 */
 
 .icons-social a {
-	color: #FAFAFA;
+	color: #FFF;
 }
 .icons-social a:hover{
 	color: #FFFFFF;
@@ -50,6 +54,47 @@ main {
 .icons-social a svg path{
 	fill: #FAFAFA;
 }
+
+ .scrollicon a span {
+  position: absolute;
+  left: 50%;
+  bottom:0;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 2.5rem;
+  margin-left: -1.4rem;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb04 2s infinite;
+  animation: sdb04 2s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb04 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    -webkit-transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+}
+@keyframes sdb04 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+
 
 /*Second Division - Blog/CV*/
 
@@ -77,9 +122,9 @@ main {
  .letter-container {
 	 display: inline-block;
 	 position: relative;
-	 width: 80px;
-	 height: 100px;
-	 line-height: 100px;
+	 width: 4.4rem;
+	 height: 5.5rem;
+	 line-height: 5.5rem;
 	 overflow: hidden;
 }
  .letter-container .letter {
@@ -88,24 +133,36 @@ main {
 	 left: 0;
 	 display: inline-block;
 	 color: #fff;
-	 font-size: 100px;
+	 font-size: 5.5rem;
 	 font-weight: 900;
 	 transition: all 0.3s;
 	 white-space: none;
 }
  .letter-container .letter:first-of-type {
-	 left: -80px;
+	 left: -4.4rem;
 }
  .letter-container .letter:last-of-type {
-	 left: 80px;
+	 left: 4.4rem;
 }
 
 
 .container{
-  position:relative;
   display:flex;
+  width:100%;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
 }
 
+/*
+.non-hover{
+  position: absolute;
+  left: 42%;
+  height: 100%;
+  width: 9.4rem;
+  z-index: 3;
+}
+*/
 .blog,
 .resume {
   min-height: 100vh;
@@ -125,7 +182,7 @@ main {
 
 	.blog {
 		 left: 0;
-		 background-color: #DA70D6;
+		 background: linear-gradient(180deg, #ff57cd, #4B0082);
 		 background-size: cover;
 		 background-position: center;
 	}
@@ -133,7 +190,7 @@ main {
 		 width: 25%;
 	}
 	 .blog:hover + div + div .center-content .letter {
-		 left: 80px;
+		 left: 4.4rem;
 		 transition: none;
 
 	}
@@ -144,12 +201,12 @@ main {
 
 	.resume {
 		 right: 0;
-		 background-color: #FF1493;
+     background: linear-gradient(180deg, #ec38bc, #7303c0, #03001e);
 		 background-size: cover;
 		 background-position: center;
 	}
 	 .resume:hover + div .center-content .letter {
-		 left: -80px;
+		 left: -4.4rem;
 		 transition: none;
 	}
 	 .resume:hover + div .center-content .letter:last-of-type {

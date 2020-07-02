@@ -78,90 +78,10 @@ html {
 
 
 .social-footer{
-		position: absolute;
-		bottom: 0;
+		position: relative;
 		align-self: center;
 	}
-/*
-	.webpages span a:hover{
-		font-weight: bold;
-	}
-*/
-	.mouseLayout {
-	        width: 100px;
-	        height: 150px;
-	        background: transparent;
-	        border: 8px solid #fff;
-	        border-radius: 50px;
-	        position: relative;
-					justify-content: center;
-					align-items: center;
-					margin: 0 auto;
-        	margin-bottom: 20px;
-	    }
 
-	    .mouseLayout::before {
-	        content: '';
-	        border: 8px solid #fff;
-	        position: absolute;
-	        top: 20%;
-	        left: 50%;
-	        transform: translate(-50%, -50%);
-	        border-radius: 50%;
-	        animation: drop 1s linear infinite;
-	    }
-
-	    .mouseLayout::after {
-	        content: '';
-	        border: 6px solid #fff;
-	        height: 20px;
-	        position: absolute;
-	        top: 20%;
-	        left: 50%;
-	        transform: translate(-50%, -50%);
-	        border-radius: 50px;
-
-	        transition: all 2s ease;
-	    }
-
-	    @keyframes drop {
-	        0% {
-	            transform: translate(-50%, 20px);
-	            opacity: 0;
-	        }
-
-	        60% {
-	            transform: translate(-50%, 70px);
-	            opacity: .8;
-	        }
-
-	        100% {
-	            transform: translate(-50%, 80px);
-	            opacity: 1;
-	        }
-	    }
-			
-.footer{
-	background: linear-gradient(-90deg, #DA70D6, #FF1493);
-	background-size: 400% 400%;
-  animation: gradientBG 10s ease infinite;
-	font-size: 30px;
-	color: #fff;
-	text-align: center;
-}
-.footer a{
-	color:#fff;
-	text-decoration: none;
-}
-
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.social-footer h4{
+	font-size: 24px;
 }

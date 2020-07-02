@@ -1,41 +1,98 @@
 {% load static %}
+
+<!DOCTYPE html>
 <html>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title> Raef's CV - Coming Soon </title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <title> Raef's CV </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <link rel="stylesheet" href="{% static 'css/homepage/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    -->
+    <link rel="stylesheet" href="{% static 'css/cv.css' %}">
 
   </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-    <a class = "navbar-brand" href="/">Home</a>
-    <a class = "navbar-brand" href="/blog">Blog</a>
-    <a class = "navbar-brand" href="/cv">CV</a>
-    {% if user.is_authenticated %}
-    <p class="top-menu">Signed in as {{ user.username }} <small class="logout">(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-    {% else %}
-        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-    {% endif %}
-    </div>
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/cv">CV</a></li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log out </a><li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
+          {% endif %}
+        </ul>
+      </div>
   </nav>
 
-  <div class="landing-main">
-    <center><h1>Coming Soon!</h1></center>
-  </div>
+  <!--
+<div class="name">
+<center><h1><span class="firstname">Raef </span><span class="lastname">Hamdan</span></h1></center>
+</div>
 
+<div class="contact">
+
+</div>
+-->
+      <header class="about-me">
+        <h1 class="name">Raef <span class="lastname">Hamdan</span></h1>
+        <span class="about-me__social">
+            <h6><a href="07587897976"><i class="fa fa-phone"></i> 07587897976</a></h6>
+            <h6><a href="mailto:mhdraef@gmail.com"><i class="fa fa-envelope"></i> mhdraef@gmail.com</a></h6>
+            <h6><a href="https://github.com/mhdraef"><i class="fab fa-github"></i> mhdraef</a></h6>
+            <h6><a href="https://linkedin.com/in/raefhamdan"><i class="fab fa-linkedin"></i> raefhamdan</a></h6>
+        </span>
+      </header>
+
+    <!-- Footer -->
+<!--
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center p-2">
+
+            <li class="list-inline-item">
+              <a href="https://github.com/mhdraef">
+                <span class="fa-stack fa-lg" style = "font-size:2rem;">
+                  <i class="fas fa-circle fa-stack-2x" style="color:#000"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/raefhamdan">
+                <span class="fa-stack fa-lg" style = "font-size:2rem;">
+                  <i class="fas fa-circle fa-stack-2x" style="color:#000;"></i>
+                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+
+          </ul>
+          <p class="copyright text-muted text-center p-2">Made by Raef Hamdan</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+-->
+    <!-- Required scripts -->
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
 
   </body>
 </html>

@@ -47,5 +47,8 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-def cv(request):
-    return render(request, 'blog/cv.html')
+@login_required
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('post_list')

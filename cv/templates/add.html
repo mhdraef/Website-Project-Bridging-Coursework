@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> Raef's CV </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/homepage/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cv.css' %}">
+
+  </head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/cv">CV</a></li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log out </a><li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
+          {% endif %}
+        </ul>
+      </div>
+  </nav>
+
+  <form method="POST" class="post-form">{% csrf_token %}
+        <div class="col-lg-8 col-md-10 mx-auto">
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-dark">Save</button>
+        </div>
+      </form>
+
+<!-- Required scripts -->
+<script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+
+</body>
+</html>

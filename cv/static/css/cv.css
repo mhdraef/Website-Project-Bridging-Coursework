@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,500i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i");
+
+body{
+  margin-top:100px;
+  margin-bottom: 100px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+  font-size: 18px;
+  margin-left: 10px;
+
+}
+
+.page-break {
+  display: none; }
+
+.about-me {
+  text-align: center;
+  margin-bottom: 20px;
+}
+  .about-me .name {
+    color: #FF1493;
+    font-weight: bold;
+    font-size: 4rem;
+  }
+    .about-me .name .lastname {
+      color:#000000;
+    }
+
+    .title {
+      color: #FF1493;
+      font-weight: bold;
+      font-size: 2em;
+    }
+      .title .second {
+        color:#000000;
+      }
+
+/*Code to port CV style from Latex to HTML from - https://github.com/jgibson02/awesome-cv-html*/
+
+  .about-me h6 {
+    font-size: 1.4em;
+    line-height: 1.4em;
+  }
+  .about-me .about-me_social > h6 {
+    display: inline;
+  }
+    .about-me .about-me_social > h6 a {
+      text-decoration: none;
+      color: black;
+    }
+      .about-me .about-me_social > h6 a > svg {
+        margin-right: 0.4em;
+      }
+        .about-me .about-me_social > h6:not(:last-child)::after {
+     content: '|';
+     margin-left: 0.75em;
+     margin-right: 0.5em;
+   }
+
+     section {
+     font-family: 'Source Sans Pro';
+
+   }
+     section .section__heading {
+       color: #FF1493;
+       font-weight: 700;
+       font-size: 1.4rem;
+       margin-bottom: 0.7em;
+       display: flex;
+       flex-direction: row;
+     }
+       section .section__heading span.section__heading-underline {
+         flex-grow: 1;
+         border-bottom: 2px solid #999999;
+         margin-bottom: 4px;
+         margin-left: 0.3em;
+       }
+     section .section__item {
+       margin-bottom: 0.5rem;
+     }
+       section .section__item > div {
+         width: 100%;
+       }
+         section .section__item > div:not(:first-child) {
+           margin-top: 0.3rem;
+         }
+         section .section__item > div > * {
+           display: inline;
+         }
+         section .section__item > div > *:last-child {
+           float: right;
+         }
+         section .section__item > div .section__subheading {
+           font-weight: 600;
+           font-size: 1.6rem;
+         }
+         section .section__item > div .section__location {
+           color: #FF1493;
+           font-size: 1.2rem;
+           font-style: italic;
+           padding-top: 5.5px;
+         }
+         section .section__item > div .section__subsubheading {
+           font-size: 1.4rem;
+           font-weight: 500;
+           font-variant: small-caps;
+           color: #5D5D5D;
+         }
+         section .section__item > div .section__date-range {
+           font-size: 1.2rem;
+           font-weight: 500;
+           font-style: italic;
+           padding-top: 2px;
+         }
+     section ul {
+       list-style-type:disc;
+       margin-left: 1.4rem;
+       margin-top: 0.5rem;
+       font-size: 0.9rem;
+       line-height: 1.1em;
+     }
+       section ul li {
+         font-size: 1.2rem;
+       }
+       section ul li:not(:last-child) {
+         margin-bottom: 0.2rem;
+       }
+     section ul, section table {
+       font-size: 1.2rem;
+       color: #333333;
+     }
+
+.skills table tr td:first-child {
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-right: 0.8em;
+}
+
+.skills table tr {
+  line-height: 1.3em;
+}
+
+.skills .skills__list span:not(:last-child)::after {
+  content: ', ';
+}

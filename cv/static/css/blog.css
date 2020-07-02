@@ -118,9 +118,6 @@ h1, h2, h3, h4 {
 }
 
 .landing-blog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position:relative;
   min-height: 50vh;
 	margin: 0;
@@ -131,7 +128,10 @@ h1, h2, h3, h4 {
 }
 
 .landing-blog h1 {
-  font-size: 6vw;
+  position:absolute;
+  top:45%;
+  width: 100%;
+  font-size: 60px;
   font-family:sans-serif;
   font-weight: bold;
   color: #fff;
@@ -151,13 +151,9 @@ h1, h2, h3, h4 {
 .landing-main form {
 
   position: absolute;
-  top: 50%;
+  top: 70%;
   width: 97%;
 
-}
-
-.login td{
-  font-size: 2rem;
 }
 
 .landing-main h1 {

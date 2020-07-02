@@ -1,13 +1,19 @@
 {% extends "blog/base.html" %}
 
-{% block content %}
+{% block landing %}
+
+<div class="landing-main">
+  <center><h1 style = "top:30%">Login</h1>
+
+
+
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
 
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-        <table>
+        <table class="login">
         <tr>
             <td>{{ form.username.label_tag }}</td>
             <td>{{ form.username }}</td>
@@ -21,4 +27,6 @@
         <input type="submit" value="login" />
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
+</center>
+</div>
 {% endblock %}

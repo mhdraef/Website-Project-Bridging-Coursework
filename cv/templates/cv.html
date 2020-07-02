@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% load static %}
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Raef's CV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/homepage/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cv.css' %}">
+
+  </head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/cv">CV</a></li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log out </a><li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
+          {% endif %}
+        </ul>
+      </div>
+  </nav>
+
+
+<div class="container col-md-8">
+      <header class="about-me">
+        <h1 class="name">Raef <span class="lastname">Hamdan</span></h1>
+        <span class="about-me_social">
+            <h6><a href="tel:07587897976"><i class="fa fa-phone"></i> 07587897976</a></h6>
+            <h6><a href="mailto:mhdraef@gmail.com"><i class="fa fa-envelope"></i> mhdraef@gmail.com</a></h6>
+            <h6><a href="https://github.com/mhdraef"><i class="fab fa-github"></i> mhdraef</a></h6>
+            <h6><a href="https://linkedin.com/in/raefhamdan"><i class="fab fa-linkedin"></i> raefhamdan</a></h6>
+        </span>
+      </header>
+
+
+      <section class="education">
+
+        {% if education %}
+
+          <div class="section__heading">
+              <h1 class="title">Edu<span class="second">cation</span></h1>
+              <span class="section__heading-underline"></span>
+              {% if user.is_authenticated %}
+              <a href="{% url 'edu_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+              {% endif %}
+          </div>
+
+          {% for edu in education %}
+
+            <div class="section__item">
+              <div>
+                  <h4 class="education__institution section__subheading">{{ edu.university }}</h4>
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'edu_edit' pk=edu.pk %}"><span class="fas fa-edit" style = "color:#FF1493;"></span></a>
+                  <a href="{% url 'edu_remove' pk=edu.pk %}"><span class="fas fa-trash" style = "color:#FF1493;" ></span></a>
+                  {% endif %}
+                  <h4 class="section__location">{{edu.location}}</h4>
+              </div>
+              <div>
+                  <h5 class="section__subsubheading">{{edu.course}}</h5>
+                  <h5 class="section__date-range">{{edu.graduation}}</h5>
+              </div>
+              {% autoescape off %}
+                {{edu.description}}
+              {% endautoescape %}
+            </div>
+            {% endfor %}
+
+        {% else %}
+              {% if user.is_authenticated %}
+              <div class="section__heading">
+                <h1 class="title">Edu<span class="second">cation</span></h1>
+                <span class="section__heading-underline"></span>
+                <a href="{% url 'edu_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+              </div>
+              {% endif %}
+       {% endif %}
+
+
+
+
+      </section>
+
+      <section class="experience">
+
+       {% if experience %}
+          <div class="section__heading">
+              <h1 class="title">Exp<span class="second">erience</span></h1>
+              <span class="section__heading-underline"></span>
+              {% if user.is_authenticated %}
+              <a href="{% url 'exp_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+              {% endif %}
+
+          </div>
+
+          {% for exp in experience %}
+
+            <div class="section__item">
+              <div>
+                  <h4 class="education__institution section__subheading">{{ exp.position }}</h4>
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'exp_edit' pk=exp.pk %}"><span class="fas fa-edit" style = "color:#FF1493"></span></a>
+                  <a href="{% url 'exp_remove' pk=exp.pk %}"><span class="fas fa-trash" style = "color:#FF1493;" ></span></a>
+
+                  {% endif %}
+
+                  <h4 class="section__location">{{exp.location}}</h4>
+              </div>
+              <div>
+                  <h5 class="section__subsubheading">{{exp.company}}</h5>
+                  <h5 class="section__date-range">{{exp.date}}</h5>
+                  </div>
+              {% autoescape off %}
+                {{exp.description}}
+              {% endautoescape %}
+            </div>
+            {% endfor %}
+        {% else %}
+          {% if user.is_authenticated %}
+            <div class="section__heading">
+              <h1 class="title">Exp<span class="second">erience</span></h1>
+              <span class="section__heading-underline"></span>
+              <a href="{% url 'exp_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+            </div>
+          {% endif %}
+        {% endif %}
+
+      </section>
+
+
+      <section class="project">
+
+       {% if project %}
+          <div class="section__heading">
+              <h1 class="title">Pro<span class="second">jects</span></h1>
+              <span class="section__heading-underline"></span>
+              {% if user.is_authenticated %}
+              <a href="{% url 'proj_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+              {% endif %}
+
+          </div>
+
+          {% for proj in project %}
+
+            <div class="section__item">
+              <div>
+                  <h4 class="education__institution section__subheading">{{ proj.title }}</h4>
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'proj_edit' pk=proj.pk %}"><span class="fas fa-edit" style = "color:#FF1493"></span></a>
+                  <a href="{% url 'proj_remove' pk=proj.pk %}"><span class="fas fa-trash" style = "color:#FF1493;" ></span></a>
+
+                  {% endif %}
+
+                  <h4 class="section__location">{{proj.languages}}</h4>
+              </div>
+              <div>
+                  <h5 class="section__subsubheading">{{proj.type}}</h5>
+                  <h5 class="section__date-range">{{proj.repository}}</h5>
+                  </div>
+              {% autoescape off %}
+                {{proj.description}}
+              {% endautoescape %}
+            </div>
+            {% endfor %}
+        {% else %}
+          {% if user.is_authenticated %}
+            <div class="section__heading">
+              <h1 class="title">Pro<span class="second">jects</span></h1>
+              <span class="section__heading-underline"></span>
+              <a href="{% url 'proj_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+            </div>
+          {% endif %}
+        {% endif %}
+
+      </section>
+
+      <section class="certificate">
+
+       {% if certificate %}
+          <div class="section__heading">
+              <h1 class="title">Cer<span class="second">tificates</span></h1>
+              <span class="section__heading-underline"></span>
+              {% if user.is_authenticated %}
+              <a href="{% url 'cert_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+              {% endif %}
+
+          </div>
+
+          {% for cert in certificate %}
+
+            <div class="section__item">
+              <div>
+                  <h4 class="education__institution section__subheading">{{ cert.name }}</h4>
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'cert_edit' pk=cert.pk %}"><span class="fas fa-edit" style = "color:#FF1493"></span></a>
+                  <a href="{% url 'cert_remove' pk=cert.pk %}"><span class="fas fa-trash" style = "color:#FF1493;" ></span></a>
+
+                  {% endif %}
+
+                  <h4 class="section__location">{{cert.date}}</h4>
+              </div>
+              <div>
+                  <h5 class="section__subsubheading">{{cert.company}}</h5>
+                  <h5 class="section__date-range"></h5>
+              </div>
+            </div>
+            {% endfor %}
+        {% else %}
+          {% if user.is_authenticated %}
+            <div class="section__heading">
+              <h1 class="title">Cer<span class="second">tificates</span></h1>
+              <span class="section__heading-underline"></span>
+              <a href="{% url 'cert_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+            </div>
+          {% endif %}
+        {% endif %}
+
+      </section>
+
+
+      <section class="skills">
+
+       {% if skill %}
+
+        <div class="section__heading">
+            <h1 class="title">Ski<span class="second">lls</span></h1>
+            <span class="section__heading-underline"></span>
+            {% if user.is_authenticated %}
+            <a href="{% url 'ski_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+            {% endif %}
+
+        </div>
+        <table>
+          {% for ski in skill %}
+          <tr>
+            <td class="skills__heading">{{ski.topic}}</td>
+            <td class="skills__list"> {{ski.skill}} </td>
+            {% if user.is_authenticated %}
+            <td><a href="{% url 'ski_edit' pk=ski.pk %}"><span class="fas fa-edit" style = "color:#FF1493"></span></a></td>
+            <td><a href="{% url 'ski_remove' pk=ski.pk %}"><span class="fas fa-trash" style = "color:#FF1493"></span></a></td>
+            {% endif %}
+
+          </tr>
+          {% endfor %}
+        </table>
+
+       {% else %}
+        {% if user.is_authenticated %}
+          <div class="section__heading">
+           <h1 class="title">Ski<span class="second">lls</span></h1>
+           <span class="section__heading-underline"></span>
+           <a href="{% url 'ski_new' %}"><span class="fas fa-plus" style = "color:#FF1493"></span></a>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      </section>
+
+</div>
+
+
+    <!-- Required scripts -->
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+
+  </body>
+</html>
