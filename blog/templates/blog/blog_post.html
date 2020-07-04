@@ -25,7 +25,10 @@
         <a class="btn btn-default" style="font-size:20px;" href="{% url 'post_remove' pk=post.pk %}"><i class="fas fa-trash"></i></a>
         </div>
         {% endif %}
+        {% autoescape off %}
         <p>{{ post.text|linebreaksbr }}</p>
+        {% endautoescape %}
+
     </div>
 {% endblock %}
 
